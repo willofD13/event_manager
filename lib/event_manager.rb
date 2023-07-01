@@ -25,8 +25,10 @@ def clean_phone (phone)
   end 
 end
 
-  
-
+def isolate_hour (regdate)
+  date = Time.parse(regdate)  
+  hour = date.hour
+end
 
 def display_legislators(zipcode)
   civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
@@ -71,4 +73,5 @@ contents.each do |row|
   thank_letter(id,form_letter)
 
   hours = []
+
 end
