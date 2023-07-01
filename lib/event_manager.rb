@@ -36,6 +36,7 @@ def peak_hour (array)
   array.max {|i| array.count(i)}
 end
 
+days = []
 def isolate_day (regdate)
   date = Date.parse(regdate)
   day = date.wday
@@ -88,6 +89,7 @@ contents.each do |row|
   hours.push(hour)
 
   day = isolate_day(row[:regdate])
+  days.push(day)
 
 end
 
