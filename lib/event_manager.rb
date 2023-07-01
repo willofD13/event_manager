@@ -31,6 +31,16 @@ def isolate_hour (regdate)
   hour = date.hour
 end
 
+hours = []
+def peak_hour (array)
+  array.max {|i| array.count(i)}
+end
+
+def isolate_day (regdate)
+  date = Date.parse(regdate)
+  day = date.wday
+end
+
 def display_legislators(zipcode)
   civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
   civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
@@ -57,12 +67,6 @@ contents = CSV.open(
 template_letter = File.read('form_letter.erb')
 template = ERB.new template_letter
 
-hours = []
-def peak_hour (array)
-  array.max {|i| array.count(i)}
-end
-
-
 
 contents.each do |row|
 
@@ -82,6 +86,8 @@ contents.each do |row|
 
   hour = isolate_hour(row[:regdate])
   hours.push(hour)
+
+  day = isolate_day(row[:regdate])
 
 end
 
