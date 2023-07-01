@@ -69,5 +69,6 @@ contents.each do |row|
   id = row[0]
   
   thank_letter(id,form_letter)
-end
 
+  hours = []
+end
