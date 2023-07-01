@@ -1,6 +1,7 @@
 require 'csv'
 require 'google/apis/civicinfo_v2'
 require 'erb'
+require 'time'
 
 def thank_letter (id, form_letter)
   Dir.mkdir('output') unless Dir.exist?('output')
