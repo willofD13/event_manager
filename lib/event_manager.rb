@@ -56,6 +56,13 @@ contents = CSV.open(
 template_letter = File.read('form_letter.erb')
 template = ERB.new template_letter
 
+hours = []
+def peak_hour (array)
+  array.max {|i| array.count(i)}
+end
+
+
+
 contents.each do |row|
 
   name = row[:first_name]
@@ -72,6 +79,9 @@ contents.each do |row|
   
   thank_letter(id,form_letter)
 
-  hours = []
+  hour = isolate_hour(row[:regdate])
+  hours.push(hour)
 
 end
+
+peak_hour(hours)
